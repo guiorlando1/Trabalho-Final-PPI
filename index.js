@@ -6,7 +6,20 @@ import cookieParser from 'cookie-parser';
 const host = '0.0.0.0';
 const porta = 3000;
 
+let interessados = [
+  { id: 1, nome: 'João' },
+  { id: 2, nome: 'Maria' },
+  { id: 3, nome: 'José' }
+];
+
+let pets = [
+  { id: 1, nome: 'Rex', raca: 'Labrador' },
+  { id: 2, nome: 'Bolinha', raca: 'Vira-lata' },
+  { id: 3, nome: 'Mel', raca: 'Poodle' }
+];
 const app = express();
+
+let listaDesejosAdocao = [];
 
 let listarPets = [];
 let listarInteressados = [];
@@ -220,8 +233,8 @@ app.use(usuarioEstaAutenticado, express.static(path.join(process.cwd(), 'protegi
 
 // Quando um usuário enviar uma requisição do tipo POST para o endpoint 'http://localhost:3000/cadastrarUsuario'
 // executa a função 'cadastrarUsuario()'
-app.post('/cadastrarPet', usuarioEstaAutenticado, cadastrarPets);
-app.post('/cadastrarInteressado', usuarioEstaAutenticado, cadastrarInteressado);
+app.post('/cadastrarPets', usuarioEstaAutenticado, cadastrarPets);
+app.post('/cadastrarInteressado', usuarioEstaAutenticado, cadastrarInteressado );
 
 app.get('/listarPets', usuarioEstaAutenticado, (req, resp) => {
   resp.write('<html>');
@@ -246,7 +259,7 @@ app.get('/listarPets', usuarioEstaAutenticado, (req, resp) => {
     resp.write('</tr>');
   }
   resp.write('</table>');
-  resp.write('<a href="/">Voltar</a>');
+  resp.write('<a class="btn btn-secondary" href="/">Home</a> <a class="btn btn-primary" href="/cadastrarPets.html">Continuar Cadastrando</a>');
   resp.write('<p>');
   if (req.cookies.dataUltimoAcesso) {
     resp.write('<p>');
@@ -283,7 +296,7 @@ app.get('/listarInteressados', usuarioEstaAutenticado, (req, resp) => {
     resp.write('</tr>');
   }
   resp.write('</table>');
-  resp.write('<a href="/">Voltar</a>');
+  resp.write('<a class="btn btn-secondary" href="/">Home</a> <a class="btn btn-primary" href="/cadastrarInteressado.html">Continuar Cadastrando</a>');
   resp.write('<p>');
   if (req.cookies.dataUltimoAcesso) {
     resp.write('<p>');
