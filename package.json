@@ -1,0 +1,31 @@
+{
+  "name": "atividade4ppi",
+  "version": "1.0.0",
+  "description": "web app http post",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guiorlando1/atividade4PPI.git"
+  },
+  "keywords": [
+    "http",
+    "post",
+    "validação"
+  ],
+  "author": "Guilherme Orlando",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guiorlando1/atividade4PPI/issues"
+  },
+  "homepage": "https://github.com/guiorlando1/atividade4PPI#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0"
+  }
+}
